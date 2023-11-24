@@ -3,43 +3,46 @@
 
 #include <string>
 #include <ostream>
+#include "date.h"
 
 class Book{
 	private:
-		std::string _ISBN;
-		std::string _title;
-		std::string _firstName;
-		std::string _lastName;
-		// Date _copyDate;
-		bool _isAvailable = true;
+		std::string first_name_;
+		std::string last_name_;
+		std::string title_;
+		std::string isbn_;
+		Date copy_date_;
+		bool availability_ = true;
 		
 	public:
-		Book(std::string firstName, std::string lastName, std::string title, std::string ISBN);
+		Book(std::string first_name, std::string last_name, std::string title, std::string isbn, Date copy_date);
+		Book(std::string first_name, std::string last_name, std::string title, std::string isbn);
+		Book(const Book& other);
 		
-		std::string getISBN() const {return _ISBN;}
+		std::string GetISBN() const {return isbn_;}
 		
-		std::string getTitle() const {return _title;}
+		std::string GetTitle() const {return title_;}
+
+		std::string GetAuthorFirstName() const {return first_name_;}
+
+		std::string GetAuthorLastName() const {return last_name_;}
 		
-		std::string getAuthorName() const {return _firstName + " " + _lastName;}
+		std::string GetAuthorName() const {return first_name_ + " " + last_name_;}
 		
-		// Date getCopyDate() const {return _copyDate;}
+		Date GetCopyDate() const {return copy_date_;}
+
+		std::string GetCopyDateString() const {return copy_date_.GetDate();}
 		
-		bool isAvailable() const {return _isAvailable;}
+		bool IsAvailable() const {return availability_;}
+
+		void SetAvailability (bool availability) {availability_ = availability;}
 		
-		bool operator==(const Book& other) const
-		{
-			return _ISBN == other._ISBN;
-		}
+		bool operator==(const Book& other) const {return isbn_ == other.isbn_;}
 		
-		bool operator!=(const Book& other) const
-		{
-			return _ISBN != other._ISBN;
-		}
+		bool operator!=(const Book& other) const{return isbn_ != other.isbn_;}
 };
 
-std::ostream& operator<<(std::ostream& os, const Book& other)
-{
-	return os << "Title: " << other.getTitle() << std::endl << "Author: " << other.getAuthorName() << std::endl << "ISBN: " << other.getISBN();
-}
+
+std::ostream& operator<<(std::ostream& os, const Book& other);
 
 #endif //BOOK_H

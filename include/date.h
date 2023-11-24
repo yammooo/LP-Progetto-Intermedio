@@ -1,21 +1,26 @@
+#ifndef DATE_H
+#define DATE_H
+
 #include <string>
 
-class date{
+class Date{
 
 	private: 
-		int day;
-		int month;
-		int year;
+		int day_;
+		int month_;
+		int year_;
 
 	public:
-		date();
-		date(int day, int month, int year);
-		date(const date& d);
+		Date();
+		Date(int day, int month, int year);
+		Date(const Date& d);
 
-		void set_date(int day,int month, int year);
-		std::string get_date();
+		void SetDate(int day,int month, int year);
+		std::string GetDate() const;
 
-		bool operator<(date d);
-		bool operator>(date d);
-		bool operator==(date d);
+		bool operator<(Date d);
+		bool operator>(Date d);
+		bool operator==(Date d);
 };
+
+#endif //DATE_H

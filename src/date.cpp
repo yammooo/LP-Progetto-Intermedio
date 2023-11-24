@@ -1,27 +1,24 @@
-#include "date.h"
+#include "../include/date.h"
 #include <stdexcept>
 
-
-date::date(){
-
-	day=1;
-	month=1;
-	year=0;
+Date::Date() {
+	day_=1;
+	month_=1;
+	year_=0;
 }
 
+Date::Date(int d, int m, int y){
 
-date::date(int d, int m, int y){
-
-	if(y<0 || y>2023){
+	if(y<=0 || y>2023){
 		throw std::out_of_range("errore di data ");
 	}
-	year=y;
+	year_=y;
 	//finito controllo anno
 
 	if(m<=0 || m>12){
 		throw std::out_of_range("errore di data ");
 	}
-	month=m;
+	month_=m;
 	//finito controllo mese
 
 	if(d<= 0 || d>31){
@@ -40,32 +37,31 @@ date::date(int d, int m, int y){
 		throw std::out_of_range("errore di data ");
 	}
 
-	day=d;
+	day_=d;
 
 	//finito il controllo del giorno
 
 }
 
-date::date(const date& d){
-
-	this->day= d.day;
-	this->month=d.month;
-	this->year=d.year;
+Date::Date(const Date& d){
+	this->day_= d.day_;
+	this->month_=d.month_;
+	this->year_=d.year_;
 }
 
 
-void date::set_date(int d, int m, int y){ //uguale al costruttore
+void Date::SetDate(int d, int m, int y){ //uguale al costruttore
 
-	if(y<0 || y>2023){
+	if(y<=0 || y>2023){
 		throw std::out_of_range("errore di data ");
 	}
-	this->year=y;
+	this->year_=y;
 	//finito controllo anno
 
 	if(m<=0 || m>12){
 		throw std::out_of_range("errore di data ");
 	}
-	this->month=m;
+	this->month_=m;
 	//finito controllo mese
 
 	if(d<= 0 || d>31){
@@ -76,64 +72,64 @@ void date::set_date(int d, int m, int y){ //uguale al costruttore
 		throw std::out_of_range("errore di data ");
 	}
 
-	if(d>28 && m==2){
+	if(d>29 && m==2){
 		throw std::out_of_range("errore di data ");
 	}
 
-	this->day=d;
+	if(d==29 && m==2 && y%4!=0){
+		throw std::out_of_range("errore di data ");
+	}
+
+	this->day_=d;
 }
 
-std::string date::get_date(){
+std::string Date::GetDate() const {
 
 	std::string a= "Data: ";
-	a+=" "+ std::to_string(this->day);
-	a+=" "+ std::to_string(this->month);
-	a+=" "+ std::to_string(this->year);
+	a+=" "+ std::to_string(this->day_);
+	a+=" "+ std::to_string(this->month_);
+	a+=" "+ std::to_string(this->year_);
 	return a;
 }
 
-bool date::operator<(date d){
+bool Date::operator<(Date d){
 
-	if(this->year<d.year){
+	if(this->year_<d.year_){
 		return true;
 	}
-	else if(this->year==d.year && this->month<d.month ){
+	else if(this->year_==d.year_ && this->month_<d.month_ ){
 		return true;
 	}
-	else if(this->year==d.year && this->month==d.month && this->day<d.day ){
-		return true;
-	}
-
-	return false;
-
-}
-
-bool date::operator>(date d){
-
-	if(this->year>d.year){
-		return true;
-	}
-	else if(this->year==d.year && this->month>d.month ){
-		return true;
-	}
-	else if(this->year==d.year && this->month==d.month && this->day>d.day ){
+	else if(this->year_==d.year_ && this->month_==d.month_ && this->day_<d.day_ ){
 		return true;
 	}
 
 	return false;
+}
 
+bool Date::operator>(Date d){
+
+	if(this->year_>d.year_){
+		return true;
+	}
+	else if(this->year_==d.year_ && this->month_>d.month_ ){
+		return true;
+	}
+	else if(this->year_==d.year_ && this->month_==d.month_ && this->day_>d.day_ ){
+		return true;
+	}
+
+	return false;
 }
 
 
-bool date::operator==(date d){
-
+bool Date::operator==(Date d){
 	
-	if(this->year==d.year && this->month==d.month && this->day==d.day ){
+	if(this->year_==d.year_ && this->month_==d.month_ && this->day_==d.day_ ){
 		return true;
 	}
 
 	return false;
-
 }
 
 

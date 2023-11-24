@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Repos/LP.Progetto.Intermedio/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/ProgettoIntermedio.dir/includes_CXX.rsp -g -o CMakeFiles\\ProgettoIntermedio.dir\\src\\book.cpp.obj -c C:\\Repos\\LP.Progetto.Intermedio\\src\\book.cpp",
+  "file": "C:/Repos/LP.Progetto.Intermedio/src/book.cpp",
+  "output": "CMakeFiles/ProgettoIntermedio.dir/src/book.cpp.obj"
+},
+{
+  "directory": "C:/Repos/LP.Progetto.Intermedio/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/ProgettoIntermedio.dir/includes_CXX.rsp -g -o CMakeFiles\\ProgettoIntermedio.dir\\src\\date.cpp.obj -c C:\\Repos\\LP.Progetto.Intermedio\\src\\date.cpp",
+  "file": "C:/Repos/LP.Progetto.Intermedio/src/date.cpp",
+  "output": "CMakeFiles/ProgettoIntermedio.dir/src/date.cpp.obj"
+},
+{
+  "directory": "C:/Repos/LP.Progetto.Intermedio/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/ProgettoIntermedio.dir/includes_CXX.rsp -g -o CMakeFiles\\ProgettoIntermedio.dir\\src\\main.cpp.obj -c C:\\Repos\\LP.Progetto.Intermedio\\src\\main.cpp",
+  "file": "C:/Repos/LP.Progetto.Intermedio/src/main.cpp",
+  "output": "CMakeFiles/ProgettoIntermedio.dir/src/main.cpp.obj"
+}
+]
