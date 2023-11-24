@@ -136,4 +136,6 @@ CMakeFiles/ProgettoIntermedio.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/13.1.0/bits/istream.tcc \
  C:/Repos/LP.Progetto.Intermedio/include/date.h \
  C:/Repos/LP.Progetto.Intermedio/include/book.h \
- C:/Repos/LP.Progetto.Intermedio/include/date.h
+ C:/Repos/LP.Progetto.Intermedio/include/date.h \
+ C:/Repos/LP.Progetto.Intermedio/include/book_shelf.h \
+ C:/Repos/LP.Progetto.Intermedio/include/book.h

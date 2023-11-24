@@ -546,6 +546,30 @@ src/book.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgettoIntermedio.dir\build.make CMakeFiles/ProgettoIntermedio.dir/src/book.cpp.s
 .PHONY : src/book.cpp.s
 
+src/book_shelf.obj: src/book_shelf.cpp.obj
+.PHONY : src/book_shelf.obj
+
+# target to build an object file
+src/book_shelf.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgettoIntermedio.dir\build.make CMakeFiles/ProgettoIntermedio.dir/src/book_shelf.cpp.obj
+.PHONY : src/book_shelf.cpp.obj
+
+src/book_shelf.i: src/book_shelf.cpp.i
+.PHONY : src/book_shelf.i
+
+# target to preprocess a source file
+src/book_shelf.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgettoIntermedio.dir\build.make CMakeFiles/ProgettoIntermedio.dir/src/book_shelf.cpp.i
+.PHONY : src/book_shelf.cpp.i
+
+src/book_shelf.s: src/book_shelf.cpp.s
+.PHONY : src/book_shelf.s
+
+# target to generate assembly for a file
+src/book_shelf.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgettoIntermedio.dir\build.make CMakeFiles/ProgettoIntermedio.dir/src/book_shelf.cpp.s
+.PHONY : src/book_shelf.cpp.s
+
 src/date.obj: src/date.cpp.obj
 .PHONY : src/date.obj
 
@@ -637,6 +661,9 @@ help:
 	@echo ... src/book.obj
 	@echo ... src/book.i
 	@echo ... src/book.s
+	@echo ... src/book_shelf.obj
+	@echo ... src/book_shelf.i
+	@echo ... src/book_shelf.s
 	@echo ... src/date.obj
 	@echo ... src/date.i
 	@echo ... src/date.s

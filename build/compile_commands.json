@@ -16,5 +16,11 @@
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/ProgettoIntermedio.dir/includes_CXX.rsp -g -o CMakeFiles\\ProgettoIntermedio.dir\\src\\main.cpp.obj -c C:\\Repos\\LP.Progetto.Intermedio\\src\\main.cpp",
   "file": "C:/Repos/LP.Progetto.Intermedio/src/main.cpp",
   "output": "CMakeFiles/ProgettoIntermedio.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Repos/LP.Progetto.Intermedio/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/ProgettoIntermedio.dir/includes_CXX.rsp -g -o CMakeFiles\\ProgettoIntermedio.dir\\src\\book_shelf.cpp.obj -c C:\\Repos\\LP.Progetto.Intermedio\\src\\book_shelf.cpp",
+  "file": "C:/Repos/LP.Progetto.Intermedio/src/book_shelf.cpp",
+  "output": "CMakeFiles/ProgettoIntermedio.dir/src/book_shelf.cpp.obj"
 }
 ]

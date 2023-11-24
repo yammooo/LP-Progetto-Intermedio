@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ProgettoIntermedio.dir/src/book.cpp.obj"
   "CMakeFiles/ProgettoIntermedio.dir/src/book.cpp.obj.d"
+  "CMakeFiles/ProgettoIntermedio.dir/src/book_shelf.cpp.obj"
+  "CMakeFiles/ProgettoIntermedio.dir/src/book_shelf.cpp.obj.d"
   "CMakeFiles/ProgettoIntermedio.dir/src/date.cpp.obj"
   "CMakeFiles/ProgettoIntermedio.dir/src/date.cpp.obj.d"
   "CMakeFiles/ProgettoIntermedio.dir/src/main.cpp.obj"

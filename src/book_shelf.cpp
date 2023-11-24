@@ -1,10 +1,10 @@
 #include <algorithm>
 #include <stdexcept>
-#include "my_vector.h"
+#include "../include/book_shelf.h"
 
-void MyVector::_resize(std::size_t new_capacity)
+void BookShelf::_resize(std::size_t new_capacity)
 {
-	double* new_elements = new double[new_capacity];
+	Book* new_elements = new Book[new_capacity];
 	std::copy(
 			_elements,
 			_elements+_virtual_size,
@@ -15,32 +15,28 @@ void MyVector::_resize(std::size_t new_capacity)
 	_elements = new_elements;
 }
 
-void MyVector::_resize()
+void BookShelf::_resize()
 {
 	if (_capacity == 0 ) _resize(1);
 	else _resize(_capacity*2);
 }
 
-MyVector::MyVector()
+BookShelf::BookShelf()
 	{
 	}
 
-MyVector::MyVector(std::size_t size) :
+BookShelf::BookShelf(std::size_t size) :
 	_virtual_size {size},
 	_capacity{size*2},
-	_elements{new double[size*2]}
+	_elements{new Book[size*2]}
 	{
-		for(std::size_t index = 0; index < _virtual_size; index++)
-		{
-			_elements[index] = 0.0;
-		}
 	}
 
 // Copy constructor
-MyVector::MyVector(const MyVector& other) :
+BookShelf::BookShelf(const BookShelf& other) :
 	_virtual_size{other._virtual_size},
 	_capacity{other._capacity},
-	_elements{new double[other._capacity]}
+	_elements{new Book[other._capacity]}
 	{
 		std::copy(
 			other._elements,
@@ -50,13 +46,13 @@ MyVector::MyVector(const MyVector& other) :
 	}
 
 // Copy assignment
-MyVector& MyVector::operator=(const MyVector& other) {
+BookShelf& BookShelf::operator=(const BookShelf& other) {
 	if (this != &other) {
 		delete[] _elements;
 		
 		_virtual_size = other._virtual_size;
 		_capacity = other._capacity;
-		_elements = new double[other._capacity];
+		_elements = new Book[other._capacity];
 		std::copy(
 			other._elements,
 			other._elements+other._virtual_size,
@@ -68,7 +64,7 @@ MyVector& MyVector::operator=(const MyVector& other) {
 }
 
 // Move constructor
-MyVector::MyVector(MyVector&& other) :
+BookShelf::BookShelf(BookShelf&& other) :
 	_virtual_size{other._virtual_size},
 	_capacity{other._capacity},
 	_elements{other._elements}
@@ -79,7 +75,7 @@ MyVector::MyVector(MyVector&& other) :
 	}
 
 // Move assignment
-MyVector& MyVector::operator=(MyVector&& other) {
+BookShelf& BookShelf::operator=(BookShelf&& other) {
 	if (this != &other) {
 		delete[] _elements;
 
@@ -96,45 +92,45 @@ MyVector& MyVector::operator=(MyVector&& other) {
 }
 
 // Destructor
-MyVector::~MyVector() {
+BookShelf::~BookShelf() {
 	delete[] _elements;
 }
 
-double& MyVector::operator[](std::size_t index) {
+Book& BookShelf::operator[](std::size_t index) {
 	return _elements[index];
 }
 
-const double& MyVector::operator[](std::size_t index) const {
+const Book& BookShelf::operator[](std::size_t index) const {
 	return _elements[index];
 }
 
-double& MyVector::at(std::size_t index) {
+Book& BookShelf::at(std::size_t index) {
 	if (index >= _virtual_size){
 		throw std::out_of_range("Index out of range");
 	}
 	return _elements[index];
 }
 
-const double& MyVector::at(std::size_t index) const {
+const Book& BookShelf::at(std::size_t index) const {
 	if (index >= _virtual_size){
 		throw std::out_of_range("Index out of range");
 	}
 	return _elements[index];
 }
 
-void MyVector::push_back(double element) {
+void BookShelf::push_back(Book element) {
 	if (_virtual_size == _capacity) _resize();
 	_elements[_virtual_size++] = element;
 }
 
-void MyVector::pop_back() {
+void BookShelf::pop_back() {
 	if (_virtual_size == 0) {
         throw std::out_of_range("pop_back on empty vector");
     }
 	_virtual_size--;
 }
 
-void MyVector::reserve(std::size_t new_min_capacity){
+void BookShelf::reserve(std::size_t new_min_capacity){
 	if(new_min_capacity > _capacity){
 		_resize(new_min_capacity);
 	}

@@ -2,6 +2,14 @@
 #include <stdexcept>
 #include "../include/book.h"
 
+Book::Book() :
+    first_name_{""},
+    last_name_{""},
+    title_{""},
+    isbn_{""},
+    copy_date_{Date()}
+    {};
+
 Book::Book(std::string first_name, std::string last_name, std::string title, std::string isbn, Date copy_date) :
     first_name_{first_name},
     last_name_{last_name},

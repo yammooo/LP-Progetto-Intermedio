@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Repos/LP.Progetto.Intermedio/src/book.cpp" "CMakeFiles/ProgettoIntermedio.dir/src/book.cpp.obj" "gcc" "CMakeFiles/ProgettoIntermedio.dir/src/book.cpp.obj.d"
+  "C:/Repos/LP.Progetto.Intermedio/src/book_shelf.cpp" "CMakeFiles/ProgettoIntermedio.dir/src/book_shelf.cpp.obj" "gcc" "CMakeFiles/ProgettoIntermedio.dir/src/book_shelf.cpp.obj.d"
   "C:/Repos/LP.Progetto.Intermedio/src/date.cpp" "CMakeFiles/ProgettoIntermedio.dir/src/date.cpp.obj" "gcc" "CMakeFiles/ProgettoIntermedio.dir/src/date.cpp.obj.d"
   "C:/Repos/LP.Progetto.Intermedio/src/main.cpp" "CMakeFiles/ProgettoIntermedio.dir/src/main.cpp.obj" "gcc" "CMakeFiles/ProgettoIntermedio.dir/src/main.cpp.obj.d"
   )

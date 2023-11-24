@@ -15,6 +15,7 @@ class Book{
 		bool availability_ = true;
 		
 	public:
+		Book();
 		Book(std::string first_name, std::string last_name, std::string title, std::string isbn, Date copy_date);
 		Book(std::string first_name, std::string last_name, std::string title, std::string isbn);
 		Book(const Book& other);

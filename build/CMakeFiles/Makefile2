@@ -836,12 +836,12 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 CMakeFiles/ProgettoIntermedio.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgettoIntermedio.dir\build.make CMakeFiles/ProgettoIntermedio.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProgettoIntermedio.dir\build.make CMakeFiles/ProgettoIntermedio.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Repos\LP.Progetto.Intermedio\build\CMakeFiles --progress-num=1,2,3,4 "Built target ProgettoIntermedio"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Repos\LP.Progetto.Intermedio\build\CMakeFiles --progress-num=1,2,3,4,5 "Built target ProgettoIntermedio"
 .PHONY : CMakeFiles/ProgettoIntermedio.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ProgettoIntermedio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Repos\LP.Progetto.Intermedio\build\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Repos\LP.Progetto.Intermedio\build\CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/ProgettoIntermedio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Repos\LP.Progetto.Intermedio\build\CMakeFiles 0
 .PHONY : CMakeFiles/ProgettoIntermedio.dir/rule
