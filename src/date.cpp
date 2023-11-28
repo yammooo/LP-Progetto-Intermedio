@@ -74,7 +74,7 @@ void Date::SetDate(int day, int month, int year)
 	};
 }
 
-std::string Date::GetDate() const
+std::string Date::GetDateString() const
 {
 	std::string a= "";
 	a+=" "+ std::to_string(day_);
@@ -125,5 +125,5 @@ bool Date::operator==(const Date& other) const
 
 std::ostream& operator<<(std::ostream& os, const Date& other)
 {
-	return os << other.GetDate();
+	return os << other.GetDateString();
 }

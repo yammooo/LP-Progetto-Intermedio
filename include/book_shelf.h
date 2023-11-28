@@ -1,5 +1,5 @@
-#ifndef MY_VECTOR_HPP
-#define MY_VECTOR_HPP
+#ifndef SRC_MY_VECTOR_HPP_
+#define SRC_MY_VECTOR_HPP_
 
 #include <cstddef>
 #include "book.h"
@@ -41,4 +41,4 @@ class BookShelf{
 		void Reserve(std::size_t new_min_capacity);
 };
 
-#endif //MY_VECTOR_HPP
+#endif //SRC_MY_VECTOR_HPP_

@@ -1,22 +1,23 @@
-#ifndef DATE_H
-#define DATE_H
+#ifndef SRC_DATE_H_
+#define SRC_DATE_H_
 
 #include <string>
 
 class Date{
 	private: 
-		int day_;
-		int month_;
-		int year_;
-		bool CheckDate_(int d, int m, int y) const;
+        int day_; // Day of the date
+        int month_; // Month of the date
+        int year_; // Year of the date
+
+        bool CheckDate_(int d, int m, int y) const; // Checks if a date is valid
 
 	public:
-		Date();
-		Date(int day, int month, int year);
-		Date(const Date& d);
+        Date(); // Default constructor
+        Date(int day, int month, int year); // Constructor with day, month, and year
+        Date(const Date& d); // Copy constructor
 
 		void SetDate(int day,int month, int year);
-		std::string GetDate() const;
+		std::string GetDateString() const;
 
 		bool operator<(const Date& d) const;
 		bool operator>(const Date& d) const;
@@ -25,4 +26,4 @@ class Date{
 
 std::ostream& operator<<(std::ostream& os, const Date& other);
 
-#endif //DATE_H
+#endif //SRC_DATE_H_
