@@ -2,12 +2,14 @@
 #include <stdexcept>
 #include "../include/book.h"
 
+// Defalt constructor
 Book::Book() :
     first_name_{""},
     last_name_{""},
     title_{""},
     isbn_{""},
-    copy_date_{Date()}
+    copy_date_{Date()},
+    availability_{false}
     {};
 
 Book::Book(std::string first_name, std::string last_name, std::string title, std::string isbn, Date copy_date) :
@@ -33,6 +35,7 @@ Book::Book(std::string first_name, std::string last_name, std::string title, std
         }
     };
 
+// Copy constructor
 Book::Book(const Book& other) :
     first_name_{other.first_name_},
     last_name_{other.last_name_},
@@ -44,5 +47,5 @@ Book::Book(const Book& other) :
 
 std::ostream& operator<<(std::ostream& os, const Book& other)
 {
-	return os << "Title: " << other.GetTitle() << std::endl << "Author: " << other.GetAuthorName() << std::endl << "ISBN: " << other.GetISBN();
+	return os << "Title: " << other.GetTitle() << std::endl << "Author: " << other.GetAuthorName() << std::endl << "ISBN: " << other.GetISBN() << std::endl << "Copyright date: " << other.GetCopyDate();
 }

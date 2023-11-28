@@ -41,6 +41,8 @@ class Book{
 		bool operator==(const Book& other) const {return isbn_ == other.isbn_;}
 		
 		bool operator!=(const Book& other) const{return isbn_ != other.isbn_;}
+
+		// Copy assignment and move constructor/assignment are unecessary because of no pointers in book, therefore a shallow copy and deep copy are the same
 };
 
 

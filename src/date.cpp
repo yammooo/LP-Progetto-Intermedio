@@ -1,5 +1,41 @@
 #include "../include/date.h"
 #include <stdexcept>
+#include <iostream>
+
+bool Date::CheckDate_(int d, int m, int y) const
+{	
+	// Year Check
+	if(y<=0 || y>2023){
+		return false;
+	}
+
+	// Month check
+	if(m<=0 || m>12){
+		return false;
+	}
+
+	// Does day exist?
+	if(d<= 0 || d>31){
+		return false;
+	}
+
+	// Nov, Apr, Jun, Sep have 30 days max
+	if(d>30 &&(m==11 || m==4 || m==6 || m==9)){
+		return false;
+	}
+
+	// Feb can have up to 29 days
+	if(d>29 && m==2){
+		return false;
+	}
+	
+	// Feb has 29 days only in leap years
+	if(d==29 && m==2 && !((y%4==0 && y%100!=0) || y%400==0)){
+		return false;
+	}
+
+	return true;
+}
 
 Date::Date() {
 	day_=1;
@@ -9,37 +45,13 @@ Date::Date() {
 
 Date::Date(int d, int m, int y){
 
-	if(y<=0 || y>2023){
+	if(CheckDate_(d, m, y)){
+		day_ = d;
+		month_ = m;
+		year_ = y;
+	} else {
 		throw std::out_of_range("errore di data ");
-	}
-	year_=y;
-	//finito controllo anno
-
-	if(m<=0 || m>12){
-		throw std::out_of_range("errore di data ");
-	}
-	month_=m;
-	//finito controllo mese
-
-	if(d<= 0 || d>31){
-		throw std::out_of_range("errore di data ");
-	}
-
-	if(d>30 &&(m==11 || m==4 || m==6 || m==9)){
-		throw std::out_of_range("errore di data ");
-	}
-
-	if(d>29 && m==2){
-		throw std::out_of_range("errore di data ");
-	}
-	
-	if(d==29 && m==2 && y%4!=0){
-		throw std::out_of_range("errore di data ");
-	}
-
-	day_=d;
-
-	//finito il controllo del giorno
+	};
 
 }
 
@@ -50,80 +62,61 @@ Date::Date(const Date& d){
 }
 
 
-void Date::SetDate(int d, int m, int y){ //uguale al costruttore
+void Date::SetDate(int d, int m, int y){
 
-	if(y<=0 || y>2023){
+	if(CheckDate_(d, m, y)){
+		day_ = d;
+		month_ = m;
+		year_ = y;
+	} else {
 		throw std::out_of_range("errore di data ");
-	}
-	this->year_=y;
-	//finito controllo anno
-
-	if(m<=0 || m>12){
-		throw std::out_of_range("errore di data ");
-	}
-	this->month_=m;
-	//finito controllo mese
-
-	if(d<= 0 || d>31){
-		throw std::out_of_range("errore di data ");
-	}
-
-	if(d>30 &&(m==11 || m==4 || m==6 || m==9)){
-		throw std::out_of_range("errore di data ");
-	}
-
-	if(d>29 && m==2){
-		throw std::out_of_range("errore di data ");
-	}
-
-	if(d==29 && m==2 && y%4!=0){
-		throw std::out_of_range("errore di data ");
-	}
-
-	this->day_=d;
+	};
 }
 
 std::string Date::GetDate() const {
 
-	std::string a= "Data: ";
+	std::string a= "";
 	a+=" "+ std::to_string(this->day_);
-	a+=" "+ std::to_string(this->month_);
-	a+=" "+ std::to_string(this->year_);
+	a+="/"+ std::to_string(this->month_);
+	a+="/"+ std::to_string(this->year_);
 	return a;
 }
 
-bool Date::operator<(Date d){
+// An year "a" is less than an year "b" if "a" comes before "b"
+// Ex. 1300<2003
+bool Date::operator<(const Date& d) const {
 
-	if(this->year_<d.year_){
-		return true;
-	}
-	else if(this->year_==d.year_ && this->month_<d.month_ ){
-		return true;
-	}
-	else if(this->year_==d.year_ && this->month_==d.month_ && this->day_<d.day_ ){
-		return true;
-	}
+ if(this->year_<d.year_){
+  return true;
+ }
+ else if(this->year_==d.year_ && this->month_<d.month_ ){
+  return true;
+ }
+ else if(this->year_==d.year_ && this->month_==d.month_ && this->day_<d.day_ ){
+  return true;
+ }
 
-	return false;
+ return false;
+
 }
 
-bool Date::operator>(Date d){
+bool Date::operator>(const Date& d) const {
 
-	if(this->year_>d.year_){
-		return true;
-	}
-	else if(this->year_==d.year_ && this->month_>d.month_ ){
-		return true;
-	}
-	else if(this->year_==d.year_ && this->month_==d.month_ && this->day_>d.day_ ){
-		return true;
-	}
+ if(this->year_>d.year_){
+  return true;
+ }
+ else if(this->year_==d.year_ && this->month_>d.month_ ){
+  return true;
+ }
+ else if(this->year_==d.year_ && this->month_==d.month_ && this->day_>d.day_ ){
+  return true;
+ }
 
-	return false;
+ return false;
+
 }
 
-
-bool Date::operator==(Date d){
+bool Date::operator==(const Date& d) const{
 	
 	if(this->year_==d.year_ && this->month_==d.month_ && this->day_==d.day_ ){
 		return true;
@@ -132,5 +125,7 @@ bool Date::operator==(Date d){
 	return false;
 }
 
-
-
+std::ostream& operator<<(std::ostream& os, const Date& other)
+{
+	return os << other.GetDate();
+};

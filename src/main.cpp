@@ -8,15 +8,19 @@ int main()
 {
 	Book first("Carlo", "Futu", "Eseprioenza sahdiahgdf", "111-222-333-4");
 
-	BookShelf shelf(10);
+	Date second_date(1, 12, 2003);
+	Book second("Gianni", "Carnu", "asfdfadsgfg", "453-222-333-4", second_date);
+
+	BookShelf shelf(3);
 
 	shelf.push_back(first);
 
 	shelf.pop_back();
 
-	shelf[5] = first;
+	shelf[0] = first;
+	shelf[1] = second;
 
-	for(int i=0; i<10; i++)
+	for(int i=0; i<shelf.size(); i++)
 	{
 		std::cout << "n. " << i << ":\n" << shelf[i] << "\n";
 	}
