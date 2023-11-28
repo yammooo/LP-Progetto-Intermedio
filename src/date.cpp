@@ -5,32 +5,38 @@
 bool Date::CheckDate_(int day, int month, int year) const
 {
 	// Year Check
-	if(year<=0 || year>2023){
+	if(year<=0 || year>2023)
+	{
 		return false;
 	}
 
 	// Month check
-	if(month<=0 || month>12){
+	if(month<=0 || month>12)
+	{
 		return false;
 	}
 
 	// Does day exist?
-	if(day<= 0 || day>31){
+	if(day<= 0 || day>31)
+	{
 		return false;
 	}
 
 	// Nov, Apr, Jun, Sep have 30 days max
-	if(day>30 &&(month==11 || month==4 || month==6 || month==9)){
+	if(day>30 &&(month==11 || month==4 || month==6 || month==9))
+	{
 		return false;
 	}
 
 	// Feb can have up to 29 days
-	if(day>29 && month==2){
+	if(day>29 && month==2)
+	{
 		return false;
 	}
 	
 	// Feb has 29 days only in leap years
-	if(day==29 && month==2 && !((year%4==0 && year%100!=0) || year%400==0)){
+	if(day==29 && month==2 && !((year%4==0 && year%100!=0) || year%400==0))
+	{
 		return false;
 	}
 
@@ -46,13 +52,14 @@ Date::Date()
 
 Date::Date(int day, int month, int year)
 {
-	if(CheckDate_(day, month, year)){
-		day_ = day;
-		month_ = month;
-		year_ = year;
-	} else {
-		throw std::out_of_range("errore di data ");
-	};
+	if(!CheckDate_(day, month, year))
+	{
+		throw std::out_of_range("Invalid date");
+	}
+
+	day_ = day;
+	month_ = month;
+	year_ = year;
 }
 
 Date::Date(const Date& other)
@@ -65,13 +72,14 @@ Date::Date(const Date& other)
 
 void Date::SetDate(int day, int month, int year)
 {
-	if(CheckDate_(day, month, year)){
-		day_ = day;
-		month_ = month;
-		year_ = year;
-	} else {
-		throw std::out_of_range("errore di data ");
-	};
+	if(!CheckDate_(day, month, year))
+	{
+		throw std::out_of_range("Invalid date");
+	}
+
+	day_ = day;
+	month_ = month;
+	year_ = year;
 }
 
 std::string Date::GetDateString() const
@@ -87,37 +95,43 @@ std::string Date::GetDateString() const
 // Ex. 1300<2003
 bool Date::operator<(const Date& other) const
 {
- if(year_<other.year_){
-  return true;
- }
- else if(year_==other.year_ && month_<other.month_ ){
-  return true;
- }
- else if(year_==other.year_ && month_==other.month_ && day_<other.day_ ){
-  return true;
- }
+	if(year_<other.year_)
+	{
+		return true;
+	} else if(year_==other.year_ && month_<other.month_ )
+	{
+		return true;
+	}
+	else if(year_==other.year_ && month_==other.month_ && day_<other.day_ )
+	{
+		return true;
+	}
 
- return false;
+	return false;
 }
 
 bool Date::operator>(const Date& other) const
 {
- if(year_>other.year_){
-  return true;
- }
- else if(year_==other.year_ && month_>other.month_ ){
-  return true;
- }
- else if(year_==other.year_ && month_==other.month_ && day_>other.day_ ){
-  return true;
- }
+	if(year_>other.year_)
+	{
+		return true;
+	}
+	else if(year_==other.year_ && month_>other.month_ )
+	{
+		return true;
+	}
+	else if(year_==other.year_ && month_==other.month_ && day_>other.day_ )
+	{
+		return true;
+	}
 
- return false;
+	return false;
 }
 
 bool Date::operator==(const Date& other) const
 {
-	if(year_==other.year_ && month_==other.month_ && day_==other.day_ ){
+	if(year_==other.year_ && month_==other.month_ && day_==other.day_ )
+	{
 		return true;
 	}
 	return false;

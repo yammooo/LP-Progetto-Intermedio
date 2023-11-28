@@ -7,9 +7,9 @@
 int main()
 {
 	// Test Book and Date constructors
-	Book first("Carlo", "Futu", "Eseprioenza sahdiahgdf", "111-222-333-4");
-	Date second_date(1, 12, 2003);
-	Book second("Gianni", "Carnu", "asfdfadsgfg", "453-222-333-4", second_date);
+	Book first("Antoine", "de Saint-Exupery", "Le Petit Prince", "207-065-286-6");
+	Date second_date(31, 3, 2009);
+	Book second("Dan", "Brown", "The Da Vinci Code", "030-747-427-5", second_date);
 
 	// Test BookShelf constructor
 	BookShelf shelf(3);
