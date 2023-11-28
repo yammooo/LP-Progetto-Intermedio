@@ -2,23 +2,23 @@
 #include <stdexcept>
 #include "../include/book_shelf.h"
 
-void BookShelf::_resize(std::size_t new_capacity)
+void BookShelf::Resize_(std::size_t new_capacity)
 {
 	Book* new_elements = new Book[new_capacity];
 	std::copy(
-			_elements,
-			_elements+_virtual_size,
+			elements_,
+			elements_+virtual_size_,
 			new_elements
 	);
-	delete[] _elements;
-	_capacity = new_capacity;
-	_elements = new_elements;
+	delete[] elements_;
+	capacity_ = new_capacity;
+	elements_ = new_elements;
 }
 
-void BookShelf::_resize()
+void BookShelf::Resize_()
 {
-	if (_capacity == 0 ) _resize(1);
-	else _resize(_capacity*2);
+	if (capacity_ == 0 ) Resize_(1);
+	else Resize_(capacity_*2);
 }
 
 BookShelf::BookShelf()
@@ -26,37 +26,38 @@ BookShelf::BookShelf()
 	}
 
 BookShelf::BookShelf(std::size_t size) :
-	_virtual_size {size},
-	_capacity{size*2},
-	_elements{new Book[size*2]}
+	virtual_size_ {size},
+	capacity_{size*2},
+	elements_{new Book[size*2]}
 	{
 	}
 
 // Copy constructor
 BookShelf::BookShelf(const BookShelf& other) :
-	_virtual_size{other._virtual_size},
-	_capacity{other._capacity},
-	_elements{new Book[other._capacity]}
+	virtual_size_{other.virtual_size_},
+	capacity_{other.capacity_},
+	elements_{new Book[other.capacity_]}
 	{
 		std::copy(
-			other._elements,
-			other._elements+other._virtual_size,
-			this->_elements
+			other.elements_,
+			other.elements_+other.virtual_size_,
+			this->elements_
 		);
 	}
 
 // Copy assignment
-BookShelf& BookShelf::operator=(const BookShelf& other) {
+BookShelf& BookShelf::operator=(const BookShelf& other)
+{
 	if (this != &other) {
-		delete[] _elements;
+		delete[] elements_;
 		
-		_virtual_size = other._virtual_size;
-		_capacity = other._capacity;
-		_elements = new Book[other._capacity];
+		virtual_size_ = other.virtual_size_;
+		capacity_ = other.capacity_;
+		elements_ = new Book[other.capacity_];
 		std::copy(
-			other._elements,
-			other._elements+other._virtual_size,
-			this->_elements
+			other.elements_,
+			other.elements_+other.virtual_size_,
+			this->elements_
 		);
 	}
 
@@ -65,73 +66,82 @@ BookShelf& BookShelf::operator=(const BookShelf& other) {
 
 // Move constructor
 BookShelf::BookShelf(BookShelf&& other) :
-	_virtual_size{other._virtual_size},
-	_capacity{other._capacity},
-	_elements{other._elements}
+	virtual_size_{other.virtual_size_},
+	capacity_{other.capacity_},
+	elements_{other.elements_}
 	{
-		other._virtual_size = 0;
-		other._capacity = 0;
-		other._elements = nullptr;
+		other.virtual_size_ = 0;
+		other.capacity_ = 0;
+		other.elements_ = nullptr;
 	}
 
 // Move assignment
-BookShelf& BookShelf::operator=(BookShelf&& other) {
+BookShelf& BookShelf::operator=(BookShelf&& other)
+{
 	if (this != &other) {
-		delete[] _elements;
+		delete[] elements_;
 
-		_virtual_size = other._virtual_size;
-		_capacity = other._capacity;
-		_elements = other._elements;
+		virtual_size_ = other.virtual_size_;
+		capacity_ = other.capacity_;
+		elements_ = other.elements_;
 
-		other._virtual_size = 0;
-		other._capacity = 0;
-		other._elements = nullptr;
+		other.virtual_size_ = 0;
+		other.capacity_ = 0;
+		other.elements_ = nullptr;
 	}
 
 	return *this;
 }
 
 // Destructor
-BookShelf::~BookShelf() {
-	delete[] _elements;
+BookShelf::~BookShelf()
+{
+	delete[] elements_;
 }
 
-Book& BookShelf::operator[](std::size_t index) {
-	return _elements[index];
+Book& BookShelf::operator[](std::size_t index)
+{
+	return elements_[index];
 }
 
-const Book& BookShelf::operator[](std::size_t index) const {
-	return _elements[index];
+const Book& BookShelf::operator[](std::size_t index) const
+{
+	return elements_[index];
 }
 
-Book& BookShelf::at(std::size_t index) {
-	if (index >= _virtual_size){
+Book& BookShelf::At(std::size_t index)
+{
+	if (index >= virtual_size_){
 		throw std::out_of_range("Index out of range");
 	}
-	return _elements[index];
+	return elements_[index];
 }
 
-const Book& BookShelf::at(std::size_t index) const {
-	if (index >= _virtual_size){
+const Book& BookShelf::At(std::size_t index) const
+{
+	if (index >= virtual_size_){
 		throw std::out_of_range("Index out of range");
 	}
-	return _elements[index];
+	return elements_[index];
 }
 
-void BookShelf::push_back(Book element) {
-	if (_virtual_size == _capacity) _resize();
-	_elements[_virtual_size++] = element;
+void BookShelf::PushBack(Book element)
+{
+	if (virtual_size_ == capacity_) Resize_();
+	elements_[virtual_size_++] = element;
 }
 
-void BookShelf::pop_back() {
-	if (_virtual_size == 0) {
+void BookShelf::PopBack()
+{
+	if (virtual_size_ == 0) {
         throw std::out_of_range("pop_back on empty vector");
     }
-	_virtual_size--;
+	virtual_size_--;
 }
 
-void BookShelf::reserve(std::size_t new_min_capacity){
-	if(new_min_capacity > _capacity){
-		_resize(new_min_capacity);
+void BookShelf::Reserve(std::size_t new_min_capacity)
+{
+	if(new_min_capacity > capacity_){
+		Resize_(new_min_capacity);
 	}
 }

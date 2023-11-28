@@ -13,14 +13,14 @@ int main()
 
 	BookShelf shelf(3);
 
-	shelf.push_back(first);
+	shelf.PushBack(first);
 
-	shelf.pop_back();
+	shelf.PopBack();
 
 	shelf[0] = first;
 	shelf[1] = second;
 
-	for(int i=0; i<shelf.size(); i++)
+	for(int i=0; i<shelf.Size(); i++)
 	{
 		std::cout << "n. " << i << ":\n" << shelf[i] << "\n";
 	}

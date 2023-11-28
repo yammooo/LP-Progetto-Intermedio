@@ -4,7 +4,6 @@
 #include <string>
 
 class Date{
-
 	private: 
 		int day_;
 		int month_;

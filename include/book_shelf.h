@@ -6,12 +6,12 @@
 
 class BookShelf{
 	private:
-		std::size_t _virtual_size = 0;
-		std::size_t _capacity = 0;
-		Book* _elements = nullptr;
+		std::size_t virtual_size_ = 0;
+		std::size_t capacity_ = 0;
+		Book* elements_ = nullptr;
 
-		void _resize(std::size_t index);
-		void _resize();
+		void Resize_(std::size_t index);
+		void Resize_();
 
 	
 	public:
@@ -26,19 +26,19 @@ class BookShelf{
 		
 		~BookShelf(); // Destructor
 		
-		std::size_t size() {
-			return _virtual_size;
+		std::size_t Size() {
+			return virtual_size_;
 		};
 
 		Book& operator[](std::size_t index);
 		const Book& operator[](std::size_t index) const;
 
-		Book& at(std::size_t index);
-		const Book& at(std::size_t index) const;
+		Book& At(std::size_t index);
+		const Book& At(std::size_t index) const;
 
-		void push_back(Book element);
-		void pop_back();
-		void reserve(std::size_t new_min_capacity);
+		void PushBack(Book element);
+		void PopBack();
+		void Reserve(std::size_t new_min_capacity);
 };
 
 #endif //MY_VECTOR_HPP
