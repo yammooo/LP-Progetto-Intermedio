@@ -23,7 +23,7 @@ int main()
 	// Test operator[]
 	shelf[0] = first;
 	shelf[1] = second;
-
+	
 	// Test Size and operator[]
 	for(int i=0; i<shelf.Size(); i++)
 	{
@@ -33,7 +33,7 @@ int main()
 	// Test At
 	try {
 		Book& book = shelf.At(0);
-		std::cout << "At 0: " << book << std::endl << std::endl;
+		std::cout << "At 0: " << std::endl << book << std::endl << std::endl;
 	} catch (const std::out_of_range& e) {
 		std::cerr << "Out of range error: " << e.what() << std::endl << std::endl;
 	}

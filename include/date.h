@@ -1,5 +1,5 @@
-#ifndef SRC_DATE_H_
-#define SRC_DATE_H_
+#ifndef LP_INCLUDE_DATE_H_
+#define LP_INCLUDE_DATE_H_
 
 #include <string>
 
@@ -13,7 +13,7 @@ class Date{
 
 	public:
         Date(); // Default constructor
-        Date(int day, int month, int year); // Constructor with day, month, and year
+        Date(int day, int month, int year); // Constructor with day, month and year
         Date(const Date& d); // Copy constructor
 
 		void SetDate(int day,int month, int year);
@@ -26,4 +26,4 @@ class Date{
 
 std::ostream& operator<<(std::ostream& os, const Date& other);
 
-#endif //SRC_DATE_H_
+#endif // LP_INCLUDE_DATE_H_

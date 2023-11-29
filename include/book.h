@@ -1,5 +1,5 @@
-#ifndef SRC_BOOK_H_
-#define SRC_BOOK_H_
+#ifndef LP_INCLUDE_BOOK_H_
+#define LP_INCLUDE_BOOK_H_
 
 #include <string>
 #include <ostream>
@@ -48,4 +48,4 @@ class Book{
 
 std::ostream& operator<<(std::ostream& os, const Book& other);
 
-#endif //SRC_BOOK_H_
+#endif // LP_INCLUDE_BOOK_H_

@@ -1,3 +1,5 @@
+We chose to follow Google's C++ Style Guide (ex. "shelf.PushBack(first)" instead of "shelf.push_back(first)")
+
 To compile the project with CMake, follow these steps:
 
 1. Open a terminal or command prompt.
